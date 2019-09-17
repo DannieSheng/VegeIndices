@@ -2,11 +2,11 @@ dbstop if error
 clear; 
 close all; clc
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% A script to calculate majoy hyperspectral vegetation indices
+% A script to calculate major hyperspectral vegetation indices
 % Reference: Hyperspectral Remote Sensing of Vegetation (Second Edition, Volumne II)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-dataPath  = 'T:\Box2\Drone Flight Data and Reference Files\Flight Data - All Sites\CLMB GWAS 2019 Flight Data\100083_2019_06_25_15_59_59\';
+window_size = 5;
+dataPath  = 'T:\Box2\Drone Flight Data and Reference Files\Flight Data - All Sites\CLMB GWAS 2019 Flight Data\100086_2019_07_18_16_55_39\';
 hdrPath   = strrep(dataPath, 'T:\Box2\Drone Flight Data and Reference Files\Flight Data - All Sites', 'T:\AnalysisDroneData\ReflectanceCube\ReadableHDR');
 hyperPath = strrep(dataPath, 'T:\Box2\Drone Flight Data and Reference Files\Flight Data - All Sites', 'T:\AnalysisDroneData\ReflectanceCube\MATdataCube');
 % hyperPath = [hyperPath '\56\'];
@@ -42,8 +42,7 @@ for i = 1:length(list_wv)
     wv = list_wv(i);
 %     [~, idx(i)] = min(abs(wavelength-wv));
     [~,temp]=sort(abs(wavelength-wv), 'ascend');
-%     idx{i} = temp(1:1);
-    idx{i} = [temp(1)-2 temp(1)-1 temp(1) temp(1)+1 temp(1)+2];
+    idx{i} = [temp(1)-floor(window_size/2):temp(1)+floor(window_size)/2];
 end
 
 %  Starting and ending indices of wavelengths of specific colors
