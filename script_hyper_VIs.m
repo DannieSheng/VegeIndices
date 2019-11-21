@@ -6,7 +6,7 @@ close all; clc
 % Reference: Hyperspectral Remote Sensing of Vegetation (Second Edition, Volumne II)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 window_size = 5;
-dataPath  = 'T:\Box2\Drone Flight Data and Reference Files\Flight Data - All Sites\CLMB GWAS 2019 Flight Data\100086_2019_07_18_16_55_39\';
+dataPath  = 'T:\Box2\Drone Flight Data and Reference Files\Flight Data - All Sites\CLMB GWAS 2019 Flight Data\100083_2019_06_25_15_59_59\';
 hdrPath   = strrep(dataPath, 'T:\Box2\Drone Flight Data and Reference Files\Flight Data - All Sites', 'T:\AnalysisDroneData\ReflectanceCube\ReadableHDR');
 hyperPath = strrep(dataPath, 'T:\Box2\Drone Flight Data and Reference Files\Flight Data - All Sites', 'T:\AnalysisDroneData\ReflectanceCube\MATdataCube');
 % hyperPath = [hyperPath '\56\'];
